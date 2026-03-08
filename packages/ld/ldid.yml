@@ -1,0 +1,21 @@
+meta:
+  name: "ldid"
+  version: "2.1.5-procursus7"
+  description: "Link Identity Editor. Put real or fake signatures in a Mach-O."
+  license: "AGPL-3.0"
+  homepage: "https://github.com/ProcursusTeam/ldid"
+
+deps:
+  # build:
+  #   - make
+  run:
+    - openssl_3
+    - libplist
+
+src:
+  fetch:
+    sha256: "04e461c6f02765e48fc9cc0b68d4dc353a9c46bc1c4d8bac0695509d1af1ff5e"
+    url: "https://github.com/ProcursusTeam/ldid/archive/refs/tags/v2.1.5-procursus7.tar.gz"
+
+build:
+  system: make
