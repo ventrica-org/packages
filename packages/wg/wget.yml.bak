@@ -1,0 +1,7 @@
+meta:
+  name: "wget"
+  version: "1.21.3"
+  description: "GNU Wget is a free utility for non-interactive download of files from the Web."
+  license: "GPL-3.0"
+  homepage: "https://www.gnu.org/software/wget/"
+  category: "networking"

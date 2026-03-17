@@ -1,0 +1,28 @@
+meta:
+  name: "zsign"
+  version: "0.9.7"
+  description: "It might be the quickest cross-platform codesign alternative for iOS 12+"
+  license: "MIT"
+  homepage: "https://github.com/zhlynn/zsign"
+  category: "security"
+
+deps:
+  build:
+    - pkgconf
+  run:
+    - openssl_3
+    - minizip
+
+src:
+  fetch:
+    sha256: "2ba8b61369c0a6dd370c04ca51f65ad2e8fe2b6a8fcbc82656f30e3be97a6e17"
+    url: "https://github.com/zhlynn/zsign/archive/refs/tags/v0.9.7.tar.gz"
+
+build:
+  system: make
+  working_dir: "build/macos"
+  skip_install: true
+  post_install: |
+    mkdir -p ${destdir}${prefix}/bin
+    cp ${srcdir}/../../bin/zsign ${destdir}${prefix}/bin/zsign
+    chmod 755 ${destdir}${prefix}/bin/zsign

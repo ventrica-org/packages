@@ -1,0 +1,36 @@
+meta:
+  name: "perl"
+  version: "5.42.1"
+  description: "Highly capable, feature-rich programming language"
+  license: "GPL-1.0"
+  homepage: "https://www.perl.org/"
+  category: "developer"
+
+deps:
+  build:
+    - gnumake
+  run:
+    - gdbm
+    - berkeley-db
+
+src:
+  fetch:
+    sha256: "6f84e6dc8cce97181d1c6aeeb552c13775c91ded3c6c73743c9211af87b16bf8"
+    url: "https://www.cpan.org/src/5.0/perl-5.42.1.tar.gz"
+
+build:
+  system: autotools
+  configure_args:
+    - "-des"
+    - "-Dinstallstyle=lib/perl5"
+    - "-Dprefix=${prefix}"
+    - "-Dprivlib=${prefix}/lib/perl5/${version.major_minor}"
+    - "-Dsitelib=${prefix}/lib/perl5/site_perl/${version.major_minor}"
+    - "-Dotherlibdirs=${prefix}/lib/perl5/site_perl/${version.major_minor}"
+    - "-Dperlpath=${prefix}/bin/perl"
+    - "-Dstartperl=#!${prefix}/bin/perl"
+    - "-Dman1dir=${prefix}/share/man/man1"
+    - "-Dman3dir=${prefix}/share/man/man3"
+    - "-Duseshrplib"
+    - "-Duselargefiles"
+    - "-Dusethreads"

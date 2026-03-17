@@ -1,0 +1,26 @@
+meta:
+  name: "libnghttp2"
+  version: "1.68.0"
+  description: "HTTP/2 C library"
+  license: "MIT"
+  homepage: "https://nghttp2.org/"
+  category: "libraries"
+
+deps:
+  build:
+    - pkgconf
+
+src:
+  fetch:
+    sha256: "2c16ffc588ad3f9e2613c3fad72db48ecb5ce15bc362fcc85b342e48daf51013"
+    url: "https://github.com/nghttp2/nghttp2/releases/download/v1.68.0/nghttp2-1.68.0.tar.gz"
+
+build:
+  system: autotools
+  configure_args:
+    - "--prefix=${prefix}"
+    - "--enable-lib-only"
+    - "--disable-silent-rules"
+  make_args:
+    - "-C"
+    - "lib"

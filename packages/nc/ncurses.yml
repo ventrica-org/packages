@@ -1,0 +1,34 @@
+meta:
+  name: "ncurses"
+  version: "6.6"
+  description: "A library for controlling writing to the console"
+  license: "MIT"
+  homepage: "https://invisible-island.net/ncurses/"
+  category: "libraries"
+
+deps:
+
+src:
+  fetch:
+    sha256: "355b4cbbed880b0381a04c46617b7656e362585d52e9cf84a67e2009b749ff11"
+    url: "https://ftp.gnu.org/gnu/ncurses/ncurses-6.6.tar.gz"
+
+build:
+  system: autotools
+  configure_args:
+    - "--prefix=${prefix}"
+    - "--enable-pc-files"
+    - "--with-pkg-config-libdir=${prefix}/lib/pkgconfig"
+    - "--enable-sigwinch"
+    - "--enable-symlinks"
+    - "--enable-widec"
+    - "--with-shared"
+    - "--with-cxx-shared"
+    - "--with-gpm=no"
+    - "--without-ada"
+  links:
+    lib/libncurses.a: libcurses.a
+    lib/pkgconfig/ncursesw.pc: lib/pkgconfig/ncurses.pc
+    lib/pkgconfig/formw.pc: lib/pkgconfig/form.pc
+    lib/pkgconfig/menuw.pc: lib/pkgconfig/menu.pc
+    lib/pkgconfig/panelw.pc: lib/pkgconfig/panel.pc

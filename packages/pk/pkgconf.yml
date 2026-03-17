@@ -4,8 +4,11 @@ meta:
   description: "pkg-config clone"
   license: "MIT"
   homepage: "https://github.com/pkgconf/pkgconf"
+  category: "developer"
 
 deps:
+  build:
+    - gnumake
 
 src:
   fetch:
@@ -15,6 +18,7 @@ src:
 build:
   system: autotools
   configure_args:
+    - "--prefix=${prefix}"
     - "--disable-silent-rules"
   links:
     bin/pkg-config: pkgconf

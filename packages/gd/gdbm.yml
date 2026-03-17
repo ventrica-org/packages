@@ -1,0 +1,21 @@
+meta:
+  name: "gdbm"
+  version: "1.26"
+  description: "GNU database manager"
+  license: "GPL-3.0"
+  homepage: "https://www.gnu.org/software/gdbm/"
+  category: "libraries"
+
+src:
+  fetch:
+    sha256: "6a24504a14de4a744103dcb936be976df6fbe88ccff26065e54c1c47946f4a5e"
+    url: "https://ftpmirror.gnu.org/gnu/gdbm/gdbm-1.26.tar.gz"
+
+build:
+  system: autotools
+  configure_args:
+    - "--prefix=${prefix}"
+    - "--disable-silent-rules"
+    - "--enable-libgdbm-compat"
+    - "--without-readline"
+  post_install: "mv ${destdir}${prefix}/include/ndbm.h ${destdir}${prefix}/include/gdbm-ndbm.h"

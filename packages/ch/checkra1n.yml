@@ -1,0 +1,16 @@
+meta:
+  name: "checkra1n"
+  version: "0.1337.3"
+  description: "A jailbreak tool for iOS devices based on the checkm8 exploit"
+  license: "None"
+  homepage: "https://checkra.in/"
+  category: "usb"
+
+src:
+  fetch:
+    sha256: "3bc1a0247dd9782b18de8945e3bb3b2dc740208b8c78f78634b80a7804a9f9be"
+    url: "https://assets.checkra.in/downloads/preview/0.1337.3/checkra1n-macos"
+
+build:
+  system: none
+  post_install: "mkdir -p ${destdir}${prefix}/bin && install -m755 ${srcdir}/checkra1n-macos ${destdir}${prefix}/bin/checkra1n"

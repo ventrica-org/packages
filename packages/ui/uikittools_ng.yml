@@ -4,11 +4,11 @@ meta:
   description: "Next-gen uikittools for iOS 11+ (though probably will work on 9+)"
   license: "BSD-3-Clause"
   homepage: "https://github.com/ProcursusTeam/uikittools-ng"
+  category: "developer"
 
 deps:
-  # make comes with the system, but I kind of want to use our make....
-  # build:
-  #   - make
+  build:
+    - gnumake
 
 src:
   fetch:

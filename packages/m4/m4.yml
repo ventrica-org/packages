@@ -1,0 +1,22 @@
+meta:
+  name: "m4"
+  version: "1.4.21"
+  description: "Macro processor"
+  license: "GPL-3.0-or-later"
+  homepage: "https://www.gnu.org/software/m4/"
+  category: "developer"
+
+deps:
+  build:
+    - gnumake
+
+src:
+  fetch:
+    sha256: "f25c6ab51548a73a75558742fb031e0625d6485fe5f9155949d6486a2408ab66"
+    url: "https://ftpmirror.gnu.org/gnu/m4/m4-1.4.21.tar.xz"
+
+build:
+  system: autotools
+  configure_args:
+    - "--prefix=${prefix}"
+    - "--disable-dependency-tracking"

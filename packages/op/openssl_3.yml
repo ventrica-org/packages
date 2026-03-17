@@ -1,12 +1,14 @@
 meta:
-  name: "openssl"
+  name: "openssl_3"
   version: "3.5.5"
   description: "Cryptography and SSL/TLS Toolkit"
   license: "Apache-2.0"
   homepage: "https://www.openssl.org/"
+  category: "security"
 
 deps:
-  # build:
+  build:
+    - gnumake
   #   - perl
 
 src:
@@ -18,7 +20,8 @@ build:
   system: autotools
   configure_script: Configure
   configure_args:
+    - "--prefix=${prefix}"
     - "darwin64-arm64-cc"
-    - "--openssldir=/opt/ventrica/live/etc/ssl"
+    - "--openssldir=${prefix}/etc/ssl"
     - "no-tests"
     - "shared"
