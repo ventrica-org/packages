@@ -1,0 +1,22 @@
+meta:
+  name: "xz"
+  version: "5.8.2"
+  description: "General-purpose data compression with high compression ratio"
+  license: "GPL-2.0-or-later"
+  homepage: "https://tukaani.org/xz/"
+  category: "compression"
+
+src:
+  fetch:
+    sha256: "ce09c50a5962786b83e5da389c90dd2c15ecd0980a258dd01f70f9e7ce58a8f1"
+    url: "https://github.com/tukaani-project/xz/releases/download/v5.8.2/xz-5.8.2.tar.gz"
+    mirrors:
+      - "https://downloads.sourceforge.net/project/lzmautils/xz-5.8.2.tar.gz"
+      - "http://downloads.sourceforge.net/project/lzmautils/xz-5.8.2.tar.gz"
+
+build:
+  system: autotools
+  configure_args:
+    - "--prefix=${prefix}"
+    - "--disable-silent-rules"
+    - "--disable-nls"

@@ -7,8 +7,6 @@ meta:
   homepage: "https://github.com/claration/impactor"
   category: "applications.usb"
 
-deps:
-
 src:
   fetch:
     sha256: "99fc87c65a7b2a0b12cf90b8ddfeac83a4d2d86e7c5fc9791d3d441194feffdd"

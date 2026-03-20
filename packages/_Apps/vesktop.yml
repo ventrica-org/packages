@@ -1,0 +1,16 @@
+meta:
+  name: "Vesktop"
+  version: "1.6.5"
+  description: "Vesktop is a custom Discord App aiming to give you better performance and improve Linux support"
+  license: "GPL-3.0"
+  icon: "https://github.com/user-attachments/assets/a947a72e-bbaf-4034-9b42-5a1c618e0abf"
+  homepage: "https://vesktop.dev"
+  category: "applications.social"
+
+src:
+  fetch:
+    sha256: "9a63e6a2f57253ccb4a25ac7b99046654a39dc7bc55e08619957992d34887e93"
+    url: "https://github.com/Vencord/Vesktop/releases/download/v1.6.5/Vesktop-1.6.5-universal.dmg"
+
+build:
+  system: application
