@@ -7,8 +7,11 @@ meta:
   category: "developer"
 
 deps:
+  build:
+    - gnumake
   run:
     - ncurses
+    - libidn2
 
 src:
   fetch:

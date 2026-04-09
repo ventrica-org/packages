@@ -7,6 +7,8 @@ meta:
   category: "libraries"
 
 deps:
+  build:
+    - gnumake
 
 src:
   fetch:

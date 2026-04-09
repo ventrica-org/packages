@@ -8,8 +8,10 @@ meta:
   category: "developer"
 
 deps:
+  build:
+    - gnumake
   run:
-    - "gmp"
+    - gmp
 
 src:
   fetch:

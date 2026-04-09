@@ -1,0 +1,28 @@
+meta:
+  name: "readline"
+  version: "8.3.3"
+  description: "Library for command-line editing"
+  license: "GPL-3.0-or-later"
+  homepage: "https://tiswww.case.edu/php/chet/readline/rltop.html"
+  category: "libraries"
+
+deps:
+  build:
+    - gnumake
+  run:
+    - ncurses
+
+src:
+  fetch:
+    sha256: "fe5383204467828cd495ee8d1d3c037a7eba1389c22bc6a041f627976f9061cc"
+    url: "https://ftp.gnu.org/gnu/readline/readline-8.3.tar.gz"
+    mirrors:
+      - "https://ftpmirror.gnu.org/gnu/readline/readline-8.3.tar.gz"
+      -
+build:
+  system: autotools
+  configure_args:
+    - "--prefix=${prefix}"
+    - "--with-curses"
+  install_args:
+    - "SHLIB_LIBS=-lcurses"

@@ -6,6 +6,10 @@ meta:
   homepage: "https://lz4.github.io/lz4/"
   category: "developer"
 
+deps:
+  build:
+    - gnumake
+
 src:
   fetch:
     sha256: "537512904744b35e232912055ccf8ec66d768639ff3abe5788d90d792ec5f48b"

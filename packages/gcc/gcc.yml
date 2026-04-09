@@ -1,0 +1,50 @@
+meta:
+  name: "gcc"
+  version: "15.2.0"
+  description: "The GNU Compiler Collection"
+  license: "GPL-3.0"
+  homepage: "https://gcc.gnu.org/"
+  category: "developer"
+
+deps:
+  build:
+    - gnumake
+    - m4
+    - flex
+  run:
+    - gmp
+    - isl
+    - zstd
+    - mpfr
+    - libmpc
+    - zstd
+
+src:
+  fetch:
+    sha256: "438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e"
+    url: "https://ftp.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+    mirrors:
+      - "https://ftpmirror.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+
+build:
+  system: autotools
+  patches:
+    - "gcc-15.1.0.patch"
+  out_of_tree: true
+  configure_args:
+    - "--prefix=${prefix}"
+    - "--libdir=${prefix}/lib/gcc/current"
+    - "--disable-nls"
+    - "--enable-checking=release"
+    - "--with-gcc-major-version-only"
+    - "--enable-languages=c,c++,fortran,objc,obj-c++"
+    - "--with-system-zlib"
+    - "--program-suffix=-15.2.0"
+    - "--with-gmp=${DEP:gmp}"
+    - "--with-mpfr=${DEP:mpfr}"
+    - "--with-mpc=${DEP:libmpc}"
+    - "--with-isl=${DEP:isl}"
+    - "--with-zstd=${DEP:zstd}"
+    - "--with-sysroot=${MACOS_SDK}"
+  make_args:
+    - "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"

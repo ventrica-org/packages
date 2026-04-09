@@ -1,0 +1,28 @@
+meta:
+  name: "flex"
+  version: "2.6.4"
+  description: "A fast lexical analyzer generator"
+  license: "GPL-2.0-or-later"
+  homepage: "https://github.com/westes/flex"
+  category: "developer"
+
+deps:
+  build:
+    - gnumake
+  run:
+    - gettext
+    - m4
+
+src:
+  fetch:
+    sha256: "e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995"
+    url: "https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz"
+
+build:
+  system: autotools
+  patches:
+    - "configure-big_sur.patch"
+  configure_args:
+    - "--prefix=${prefix}"
+    - "--disable-silent-rules"
+    - "--enable-shared"

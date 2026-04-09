@@ -6,6 +6,10 @@ meta:
   homepage: "https://tukaani.org/xz/"
   category: "compression"
 
+deps:
+  build:
+    - gnumake
+
 src:
   fetch:
     sha256: "ce09c50a5962786b83e5da389c90dd2c15ecd0980a258dd01f70f9e7ce58a8f1"

@@ -1,0 +1,26 @@
+meta:
+  name: "libmpc"
+  version: "1.4.0"
+  description: "A C library for the parsing of mathematical expressions"
+  license: "LGPL-3.0-or-later"
+
+deps:
+  build:
+    - gnumake
+  run:
+    - gmp
+    - mpfr
+
+src:
+  fetch:
+    sha256: "3210b3a546b1cb00c296ca360891d7740ee6ff06deb02a27a35b20cd3c0bb1a5"
+    url: "https://ftp.gnu.org/gnu/mpc/mpc-1.4.0.tar.xz"
+    mirrors:
+      - "https://ftpmirror.gnu.org/gnu/mpc/mpc-1.4.0.tar.xz"
+
+build:
+  system: autotools
+  configure_args:
+    - "--prefix=${prefix}"
+    - "--with-gmp=${DEP:gmp}"
+    - "--with-mpfr=${DEP:mpfr}"

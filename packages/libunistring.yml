@@ -9,6 +9,7 @@ meta:
 deps:
   build:
     - gnumake
+
 src:
   fetch:
     sha256: "e82664b170064e62331962126b259d452d53b227bb4a93ab20040d846fec01d8"

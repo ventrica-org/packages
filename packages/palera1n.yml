@@ -6,8 +6,6 @@ meta:
   homepage: "https://palera.in/"
   category: "usb"
 
-deps:
-
 src:
   fetch:
     sha256: "39dea3bf92d0a3031c3c050475987c930b4c2feb972e9dcc3e37e5c8844d69f0"

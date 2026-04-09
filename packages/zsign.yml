@@ -8,6 +8,7 @@ meta:
 
 deps:
   build:
+    - gnumake
     - pkgconf
   run:
     - openssl_3

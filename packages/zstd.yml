@@ -3,11 +3,12 @@ meta:
   version: "15.2.0"
   description: "Zstandard compression algorithm"
   license: "BSD-3-Clause"
-  homepage: "https://facebook.github.io/zstd/"
+  homepage: "https://facebook.github.io/zstd"
   category: "compression"
 
 deps:
   build:
+    - gnumake
     - cmake
   run:
     - xz
