@@ -32,8 +32,8 @@ build:
     - "gcc-15.1.0.patch"
   out_of_tree: true
   configure_args:
-    - "--prefix=${prefix}"
-    - "--libdir=${prefix}/lib/gcc/current"
+    - "--prefix=${PREFIX}"
+    - "--libdir=${PREFIX}/lib/gcc/current"
     - "--disable-nls"
     - "--enable-checking=release"
     - "--with-gcc-major-version-only"

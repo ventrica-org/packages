@@ -23,4 +23,4 @@ src:
 
 build:
   system: make
-  pre_configure: "./bootstrap --prefix=${prefix} --no-system-libs --datadir=${prefix}/share/cmake --docdir=${prefix}/share/doc/cmake --mandir=${prefix}/share/man"
+  pre_configure: "./bootstrap --prefix=${PREFIX} --no-system-libs --datadir=${PREFIX}/share/cmake --docdir=${PREFIX}/share/doc/cmake --mandir=${PREFIX}/share/man"

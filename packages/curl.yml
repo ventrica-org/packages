@@ -23,7 +23,7 @@ src:
 build:
   system: autotools
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
     - "--enable-versioned-symbols"
     - "--disable-manual"
     - "--disable-silent-rules"

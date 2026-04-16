@@ -23,6 +23,6 @@ build:
   patches:
     - "configure-big_sur.patch"
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
     - "--disable-silent-rules"
     - "--enable-shared"

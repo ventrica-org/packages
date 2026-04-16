@@ -26,5 +26,5 @@ build:
   post_patch: "sed -i '' 's/_(/N_(/g' src/system.c"
   pre_configure: "autoreconf -fi"
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
     - "--disable-nls"

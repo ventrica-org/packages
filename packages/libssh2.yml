@@ -20,7 +20,7 @@ src:
 build:
   system: autotools
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
     - "--disable-silent-rules"
     - "--disable-examples-build"
     - "--with-openssl"

@@ -21,6 +21,6 @@ src:
 build:
   system: autotools
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
     - "--with-gmp=${DEP:gmp}"
     - "--with-mpfr=${DEP:mpfr}"

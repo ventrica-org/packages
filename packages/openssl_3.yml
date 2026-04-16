@@ -20,8 +20,8 @@ build:
   system: autotools
   configure_script: Configure
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
     - "darwin64-arm64-cc"
-    - "--openssldir=${prefix}/etc/ssl"
+    - "--openssldir=${PREFIX}/etc/ssl"
     - "no-tests"
     - "shared"

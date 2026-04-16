@@ -22,7 +22,7 @@ src:
 build:
   system: autotools
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
     - "--with-curses"
   install_args:
     - "SHLIB_LIBS=-lcurses"

@@ -22,7 +22,7 @@ src:
 build:
   system: autotools
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
     - "--enable-cxx"
     - "--with-pic"
     - "--build=aarch64-apple-darwin16"

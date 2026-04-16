@@ -34,4 +34,4 @@ build:
     - "-DZSTD_LZMA_SUPPORT=ON"
     - "-DZSTD_LZ4_SUPPORT=ON"
     - "-DCMAKE_CXX_STANDARD=11"
-    - "-DCMAKE_INSTALL_RPATH=${prefix}/lib"
+    - "-DCMAKE_INSTALL_RPATH=${PREFIX}/lib"

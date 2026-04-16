@@ -13,4 +13,4 @@ src:
 
 build:
   system: none
-  post_install: "mkdir -p ${destdir}${prefix}/bin && install -m755 ${srcdir}/checkra1n-macos ${destdir}${prefix}/bin/checkra1n"
+  post_install: "mkdir -p ${destdir}${PREFIX}/bin && install -m755 ${srcdir}/checkra1n-macos ${destdir}${PREFIX}/bin/checkra1n"

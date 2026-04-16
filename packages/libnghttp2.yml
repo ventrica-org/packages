@@ -19,7 +19,7 @@ src:
 build:
   system: autotools
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
     - "--enable-lib-only"
     - "--disable-silent-rules"
   make_args:

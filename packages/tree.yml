@@ -14,8 +14,8 @@ src:
 build:
   system: make
   make_args:
-    - "PREFIX=${prefix}"
-    - "MANDIR=${prefix}/share/man"
+    - "PREFIX=${PREFIX}"
+    - "MANDIR=${PREFIX}/share/man"
   install_args:
-    - "DESTDIR=${DESTDIR}${prefix}/bin"
-    - "MANDIR=${DESTDIR}${prefix}/share/man"
+    - "DESTDIR=${DESTDIR}${PREFIX}/bin"
+    - "MANDIR=${DESTDIR}${PREFIX}/share/man"

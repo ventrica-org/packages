@@ -22,6 +22,6 @@ build:
   working_dir: "build_unix"
   configure_script: "../dist/configure"
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
   install_args:
     - "DOCLIST=license"

@@ -23,5 +23,5 @@ build:
   working_dir: "contrib/minizip"
   pre_configure: "autoreconf --force --install --verbose"
   configure_args:
-    - "--prefix=${prefix}"
-  post_install: "cp ${srcdir}/ints.h ${destdir}${prefix}/include/minizip/"
+    - "--prefix=${PREFIX}"
+  post_install: "cp ${srcdir}/ints.h ${destdir}${PREFIX}/include/minizip/"

@@ -24,6 +24,6 @@ build:
   working_dir: "build/macos"
   skip_install: true
   post_install: |
-    mkdir -p ${destdir}${prefix}/bin
-    cp ${srcdir}/../../bin/zsign ${destdir}${prefix}/bin/zsign
-    chmod 755 ${destdir}${prefix}/bin/zsign
+    mkdir -p ${destdir}${PREFIX}/bin
+    cp ${srcdir}/../../bin/zsign ${destdir}${PREFIX}/bin/zsign
+    chmod 755 ${destdir}${PREFIX}/bin/zsign

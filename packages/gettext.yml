@@ -23,7 +23,7 @@ build:
     am_cv_func_iconv_works: "yes"
   system: autotools
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
   # - "--with-libunistring-prefix=???"
     - "--disable-silent-rules"
     - "--with-included-glib"

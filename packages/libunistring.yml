@@ -24,5 +24,5 @@ build:
     am_cv_func_iconv_works: "yes"
   system: autotools
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
     - "--disable-silent-rules"

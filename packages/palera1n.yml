@@ -13,4 +13,4 @@ src:
 
 build:
   system: none
-  post_install: "mkdir -p ${destdir}${prefix}/bin && install -m755 ${srcdir}/palera1n-macos-universal ${destdir}${prefix}/bin/palera1n"
+  post_install: "mkdir -p ${destdir}${PREFIX}/bin && install -m755 ${srcdir}/palera1n-macos-universal ${destdir}${PREFIX}/bin/palera1n"

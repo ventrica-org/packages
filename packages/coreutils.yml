@@ -23,6 +23,6 @@ src:
 build:
   system: autotools
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
     - "--with-libgmp"
     - "--without-selinux"

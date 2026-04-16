@@ -21,4 +21,4 @@ src:
 build:
   system: make
   make_args:
-    - "PREFIX=${prefix}"
+    - "PREFIX=${PREFIX}"

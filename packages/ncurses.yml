@@ -20,9 +20,9 @@ src:
 build:
   system: autotools
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
     - "--enable-pc-files"
-    - "--with-pkg-config-libdir=${prefix}/lib/pkgconfig"
+    - "--with-pkg-config-libdir=${PREFIX}/lib/pkgconfig"
     - "--enable-sigwinch"
     - "--enable-symlinks"
     - "--enable-widec"

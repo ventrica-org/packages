@@ -22,10 +22,10 @@ src:
 build:
   system: autotools
   configure_args:
-    - "--prefix=${prefix}"
+    - "--prefix=${PREFIX}"
     - "--enable-color"
     - "--enable-extra"
     - "--enable-multibuffer"
     - "--enable-nanorc"
     - "--enable-utf8"
-    - "--sysconfdir=${prefix}/etc"
+    - "--sysconfdir=${PREFIX}/etc"
