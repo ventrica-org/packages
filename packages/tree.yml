@@ -12,10 +12,7 @@ src:
     url: "https://github.com/Old-Man-Programmer/tree/archive/refs/tags/2.3.2.tar.gz"
 
 build:
-  system: make
-  make_args:
-    - "PREFIX=${PREFIX}"
-    - "MANDIR=${PREFIX}/share/man"
-  install_args:
-    - "DESTDIR=${DESTDIR}${PREFIX}/bin"
-    - "MANDIR=${DESTDIR}${PREFIX}/share/man"
+  system: shell
+  run: |
+    make PREFIX=${PREFIX} MANDIR=${PREFIX}/share/man
+    make install DESTDIR=${DESTDIR}${PREFIX}/bin MANDIR=${DESTDIR}${PREFIX}/share/man

@@ -20,12 +20,15 @@ src:
     url: "https://www.nano-editor.org/dist/v8/nano-8.7.1.tar.xz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--enable-color"
-    - "--enable-extra"
-    - "--enable-multibuffer"
-    - "--enable-nanorc"
-    - "--enable-utf8"
-    - "--sysconfdir=${PREFIX}/etc"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --enable-color \
+      --enable-extra \
+      --enable-multibuffer \
+      --enable-nanorc \
+      --enable-utf8 \
+      --sysconfdir=${PREFIX}/etc
+    make
+    make install DESTDIR=${DESTDIR}

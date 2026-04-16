@@ -16,6 +16,8 @@ src:
     url: "https://github.com/libimobiledevice/libplist/releases/download/2.7.0/libplist-2.7.0.tar.bz2"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
+  system: shell
+  run: |
+    ./configure --prefix=${PREFIX}
+    make
+    make install DESTDIR=${DESTDIR}

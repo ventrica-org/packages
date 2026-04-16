@@ -16,10 +16,12 @@ src:
     url: "https://distfiles.ariadne.space/pkgconf/pkgconf-2.5.1.tar.xz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--disable-silent-rules"
-  links:
-    bin/pkg-config: pkgconf
-    share/man/man1/pkg-config.1: pkgconf.1
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --disable-silent-rules
+    make
+    make install DESTDIR=${DESTDIR}
+    ln -sf pkgconf ${DESTDIR}${PREFIX}/bin/pkg-config
+    ln -sf pkgconf.1 ${DESTDIR}${PREFIX}/share/man/man1/pkg-config.1

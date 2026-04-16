@@ -20,11 +20,14 @@ src:
       - "https://ftpmirror.gnu.org/gnu/tar/tar-1.35.tar.gz"
 
 build:
-  system: autotools
+  system: shell
   patches:
     - "fix-makefile-iconv.patch"
-  post_patch: "sed -i '' 's/_(/N_(/g' src/system.c"
-  pre_configure: "autoreconf -fi"
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--disable-nls"
+  run: |
+    sed -i '' 's/_(/N_(/g' src/system.c
+    autoreconf -fi
+    ./configure \
+      --prefix=${PREFIX} \
+      --disable-nls
+    make
+    make install DESTDIR=${DESTDIR}

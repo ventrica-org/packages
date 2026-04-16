@@ -19,7 +19,10 @@ src:
     url: "https://ftpmirror.gnu.org/gnu/gzip/gzip-1.14.tar.gz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--disable-dependency-tracking"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --disable-dependency-tracking
+    make
+    make install DESTDIR=${DESTDIR}

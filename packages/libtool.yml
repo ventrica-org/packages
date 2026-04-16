@@ -20,8 +20,11 @@ src:
       - "https://ftpmirror.gnu.org/gnu/libtool/libtool-2.5.4.tar.gz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--disable-silent-rules"
-    - "--enable-ltdl-install"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --disable-silent-rules \
+      --enable-ltdl-install
+    make
+    make install DESTDIR=${DESTDIR}

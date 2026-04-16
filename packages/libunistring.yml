@@ -13,7 +13,9 @@ deps:
 src:
   fetch:
     sha256: "e82664b170064e62331962126b259d452d53b227bb4a93ab20040d846fec01d8"
-    url: "https://ftpmirror.gnu.org/gnu/libunistring/libunistring-1.4.2.tar.gz"
+    url: "https://ftp.gnu.org/gnu/libunistring/libunistring-1.4.2.tar.gz"
+    mirrors:
+      - "https://ftpmirror.gnu.org/gnu/libunistring/libunistring-1.4.2.tar.gz"
 
 build:
   env:
@@ -22,7 +24,10 @@ build:
     # https://github.com/coreutils/gnulib/commit/bab130878fe57086921fa7024d328341758ed453
     # https://savannah.gnu.org/bugs/?65686
     am_cv_func_iconv_works: "yes"
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--disable-silent-rules"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --disable-silent-rules
+    make
+    make install DESTDIR=${DESTDIR}

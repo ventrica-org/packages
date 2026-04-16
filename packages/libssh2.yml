@@ -18,11 +18,14 @@ src:
     url: "https://libssh2.org/download/libssh2-1.11.1.tar.gz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--disable-silent-rules"
-    - "--disable-examples-build"
-    - "--with-openssl"
-    - "--with-libz"
-    - "--without-libz-prefix"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --disable-silent-rules \
+      --disable-examples-build \
+      --with-openssl \
+      --with-libz \
+      --without-libz-prefix
+    make
+    make install DESTDIR=${DESTDIR}

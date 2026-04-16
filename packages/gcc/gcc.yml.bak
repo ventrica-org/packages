@@ -17,7 +17,6 @@ deps:
     - zstd
     - mpfr
     - libmpc
-    - zstd
 
 src:
   fetch:
@@ -27,24 +26,25 @@ src:
       - "https://ftpmirror.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
 
 build:
-  system: autotools
+  system: shell
   patches:
     - "gcc-15.1.0.patch"
-  out_of_tree: true
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--libdir=${PREFIX}/lib/gcc/current"
-    - "--disable-nls"
-    - "--enable-checking=release"
-    - "--with-gcc-major-version-only"
-    - "--enable-languages=c,c++,fortran,objc,obj-c++"
-    - "--with-system-zlib"
-    - "--program-suffix=-15.2.0"
-    - "--with-gmp=${DEP:gmp}"
-    - "--with-mpfr=${DEP:mpfr}"
-    - "--with-mpc=${DEP:libmpc}"
-    - "--with-isl=${DEP:isl}"
-    - "--with-zstd=${DEP:zstd}"
-    - "--with-sysroot=${MACOS_SDK}"
-  make_args:
-    - "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
+  run: |
+    cd ${BUILDDIR}
+    ${SRCDIR}/configure \
+      --prefix=${PREFIX} \
+      --libdir=${PREFIX}/lib/gcc/current \
+      --disable-nls \
+      --enable-checking=release \
+      --with-gcc-major-version-only \
+      --enable-languages=c,c++,fortran,objc,obj-c++ \
+      --with-system-zlib \
+      --program-suffix=-15.2.0 \
+      --with-gmp=${DEP:gmp} \
+      --with-mpfr=${DEP:mpfr} \
+      --with-mpc=${DEP:libmpc} \
+      --with-isl=${DEP:isl} \
+      --with-zstd=${DEP:zstd} \
+      --with-sysroot=${MACOS_SDK}
+    make BOOT_LDFLAGS=-Wl,-headerpad_max_install_names
+    make install DESTDIR=${DESTDIR}

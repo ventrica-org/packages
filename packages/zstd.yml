@@ -23,15 +23,19 @@ src:
       - "http://fresh-center.net/linux/misc/legacy/zstd-1.5.7.tar.gz"
 
 build:
-  system: cmake
-  cmake_source_dir: "build/cmake"
-  configure_args:
-    - "-DBUILD_SHARED_LIBS=ON"
-    - "-DZSTD_PROGRAMS_LINK_SHARED=ON"
-    - "-DZSTD_BUILD_CONTRIB=ON"
-    - "-DZSTD_LEGACY_SUPPORT=ON"
-    - "-DZSTD_ZLIB_SUPPORT=ON"
-    - "-DZSTD_LZMA_SUPPORT=ON"
-    - "-DZSTD_LZ4_SUPPORT=ON"
-    - "-DCMAKE_CXX_STANDARD=11"
-    - "-DCMAKE_INSTALL_RPATH=${PREFIX}/lib"
+  system: shell
+  run: |
+    cmake build/cmake \
+      -DCMAKE_INSTALL_PREFIX=${PREFIX} \
+      -DBUILD_SHARED_LIBS=ON \
+      -DZSTD_PROGRAMS_LINK_SHARED=ON \
+      -DZSTD_BUILD_CONTRIB=ON \
+      -DZSTD_LEGACY_SUPPORT=ON \
+      -DZSTD_ZLIB_SUPPORT=ON \
+      -DZSTD_LZMA_SUPPORT=ON \
+      -DZSTD_LZ4_SUPPORT=ON \
+      -DCMAKE_CXX_STANDARD=11 \
+      -DCMAKE_INSTALL_RPATH=${PREFIX}/lib \
+      -B _build
+    cmake --build _build
+    DESTDIR=${DESTDIR} cmake --install _build

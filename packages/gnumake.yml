@@ -14,9 +14,11 @@ src:
       - "https://ftpmirror.gnu.org/gnu/make/make-4.4.1.tar.lz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--disable-dependency-tracking"
-  links:
-    - bin/gmake: "make"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --disable-dependency-tracking
+    make
+    make install DESTDIR=${DESTDIR}
+    ln -sf make ${DESTDIR}${PREFIX}/bin/gmake

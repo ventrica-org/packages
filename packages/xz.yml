@@ -19,8 +19,11 @@ src:
       - "http://downloads.sourceforge.net/project/lzmautils/xz-5.8.2.tar.gz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--disable-silent-rules"
-    - "--disable-nls"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --disable-silent-rules \
+      --disable-nls
+    make
+    make install DESTDIR=${DESTDIR}

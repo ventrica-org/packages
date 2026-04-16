@@ -21,8 +21,11 @@ src:
       - "https://ftpmirror.gnu.org/gnu/coreutils/coreutils-9.10.tar.xz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--with-libgmp"
-    - "--without-selinux"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --with-libgmp \
+      --without-selinux
+    make
+    make install DESTDIR=${DESTDIR}

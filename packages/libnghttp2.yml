@@ -17,11 +17,11 @@ src:
     url: "https://github.com/nghttp2/nghttp2/releases/download/v1.68.0/nghttp2-1.68.0.tar.gz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--enable-lib-only"
-    - "--disable-silent-rules"
-  make_args:
-    - "-C"
-    - "lib"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --enable-lib-only \
+      --disable-silent-rules
+    make -C lib
+    make -C lib install DESTDIR=${DESTDIR}

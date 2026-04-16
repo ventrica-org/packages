@@ -23,8 +23,11 @@ src:
       - "https://ftpmirror.gnu.org/gnu/gawk/gawk-5.4.0.tar.xz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--disable-silent-rules"
-    - "--without-libsigsegv-prefix"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --disable-silent-rules \
+      --without-libsigsegv-prefix
+    make
+    make install DESTDIR=${DESTDIR}

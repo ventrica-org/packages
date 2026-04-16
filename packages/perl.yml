@@ -19,18 +19,21 @@ src:
     url: "https://www.cpan.org/src/5.0/perl-5.42.1.tar.gz"
 
 build:
-  system: autotools
-  configure_args:
-    - "-des"
-    - "-Dinstallstyle=lib/perl5"
-    - "-Dprefix=${PREFIX}"
-    - "-Dprivlib=${PREFIX}/lib/perl5/${version.major_minor}"
-    - "-Dsitelib=${PREFIX}/lib/perl5/site_perl/${version.major_minor}"
-    - "-Dotherlibdirs=${PREFIX}/lib/perl5/site_perl/${version.major_minor}"
-    - "-Dperlpath=${PREFIX}/bin/perl"
-    - "-Dstartperl=#!${PREFIX}/bin/perl"
-    - "-Dman1dir=${PREFIX}/share/man/man1"
-    - "-Dman3dir=${PREFIX}/share/man/man3"
-    - "-Duseshrplib"
-    - "-Duselargefiles"
-    - "-Dusethreads"
+  system: shell
+  run: |
+    ./Configure \
+      -des \
+      -Dinstallstyle=lib/perl5 \
+      -Dprefix=${PREFIX} \
+      -Dprivlib=${PREFIX}/lib/perl5/5.42 \
+      -Dsitelib=${PREFIX}/lib/perl5/site_perl/5.42 \
+      -Dotherlibdirs=${PREFIX}/lib/perl5/site_perl/5.42 \
+      -Dperlpath=${PREFIX}/bin/perl \
+      -Dstartperl='#!${PREFIX}/bin/perl' \
+      -Dman1dir=${PREFIX}/share/man/man1 \
+      -Dman3dir=${PREFIX}/share/man/man3 \
+      -Duseshrplib \
+      -Duselargefiles \
+      -Dusethreads
+    make
+    make install DESTDIR=${DESTDIR}

@@ -18,10 +18,10 @@ src:
     url: "https://download.oracle.com/berkeley-db/db-18.1.40.tar.gz"
 
 build:
-  system: autotools
-  working_dir: "build_unix"
-  configure_script: "../dist/configure"
-  configure_args:
-    - "--prefix=${PREFIX}"
-  install_args:
-    - "DOCLIST=license"
+  system: shell
+  run: |
+    mkdir -p build_unix
+    cd build_unix
+    ../dist/configure --prefix=${PREFIX}
+    make
+    make install DESTDIR=${DESTDIR} DOCLIST=license

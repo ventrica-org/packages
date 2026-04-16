@@ -20,10 +20,10 @@ src:
     url: "https://github.com/zhlynn/zsign/archive/refs/tags/v0.9.7.tar.gz"
 
 build:
-  system: make
-  working_dir: "build/macos"
-  skip_install: true
-  post_install: |
-    mkdir -p ${destdir}${PREFIX}/bin
-    cp ${srcdir}/../../bin/zsign ${destdir}${PREFIX}/bin/zsign
-    chmod 755 ${destdir}${PREFIX}/bin/zsign
+  system: shell
+  run: |
+    cd build/macos
+    make
+    mkdir -p ${DESTDIR}${PREFIX}/bin
+    cp ../../bin/zsign ${DESTDIR}${PREFIX}/bin/zsign
+    chmod 755 ${DESTDIR}${PREFIX}/bin/zsign

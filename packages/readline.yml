@@ -20,9 +20,10 @@ src:
       - "https://ftpmirror.gnu.org/gnu/readline/readline-8.3.tar.gz"
       -
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--with-curses"
-  install_args:
-    - "SHLIB_LIBS=-lcurses"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --with-curses
+    make
+    make install DESTDIR=${DESTDIR} SHLIB_LIBS=-lcurses

@@ -22,8 +22,10 @@ src:
       - "http://ftp.gnu.org/gnu/libidn/libidn2-2.3.8.tar.gz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--disable-silent-rules"
-    # - "--with-libintl-prefix=${PREFIX}"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --disable-silent-rules
+    make
+    make install DESTDIR=${DESTDIR}

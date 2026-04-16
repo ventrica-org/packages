@@ -20,10 +20,13 @@ src:
       - "https://ftpmirror.gnu.org/gnu/isl/isl-0.27.tar.xz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--disable-dependency-tracking"
-    - "--disable-silent-rules"
-    - "--with-gmp=system"
-    - "--with-gmp-prefix=${DEP:gmp}"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --disable-dependency-tracking \
+      --disable-silent-rules \
+      --with-gmp=system \
+      --with-gmp-prefix=${DEP:gmp}
+    make
+    make install DESTDIR=${DESTDIR}

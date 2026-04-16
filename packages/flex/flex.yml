@@ -19,10 +19,13 @@ src:
     url: "https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz"
 
 build:
-  system: autotools
+  system: shell
   patches:
     - "configure-big_sur.patch"
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--disable-silent-rules"
-    - "--enable-shared"
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --disable-silent-rules \
+      --enable-shared
+    make
+    make install DESTDIR=${DESTDIR}

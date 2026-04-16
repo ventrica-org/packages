@@ -12,7 +12,6 @@ deps:
   build:
     - gnumake
 
-
 src:
   fetch:
     sha256: "85d99b79c981a404874c02e0342176cf75c7698e2b51fe41031cf6526d974f1a"
@@ -21,18 +20,19 @@ src:
 build:
   env:
     am_cv_func_iconv_works: "yes"
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-  # - "--with-libunistring-prefix=???"
-    - "--disable-silent-rules"
-    - "--with-included-glib"
-    - "--with-included-libcroco"
-    - "--with-emacs"
-    - "--disable-java"
-    - "--disable-csharp"
-    - "--without-git"
-    - "--without-cvs"
-    - "--without-xz"
-    # mac specific
-    - "--with-included-gettext"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --disable-silent-rules \
+      --with-included-glib \
+      --with-included-libcroco \
+      --with-emacs \
+      --disable-java \
+      --disable-csharp \
+      --without-git \
+      --without-cvs \
+      --without-xz \
+      --with-included-gettext
+    make
+    make install DESTDIR=${DESTDIR}

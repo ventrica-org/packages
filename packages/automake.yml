@@ -20,6 +20,8 @@ src:
       - "https://ftpmirror.gnu.org/gnu/automake/automake-1.18.1.tar.xz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
+  system: shell
+  run: |
+    ./configure --prefix=${PREFIX}
+    make
+    make install DESTDIR=${DESTDIR}

@@ -19,9 +19,11 @@ src:
     url: "https://zlib.net/zlib-1.3.2.tar.gz"
 
 build:
-  system: autotools
-  working_dir: "contrib/minizip"
-  pre_configure: "autoreconf --force --install --verbose"
-  configure_args:
-    - "--prefix=${PREFIX}"
-  post_install: "cp ${srcdir}/ints.h ${destdir}${PREFIX}/include/minizip/"
+  system: shell
+  run: |
+    cd contrib/minizip
+    autoreconf --force --install --verbose
+    ./configure --prefix=${PREFIX}
+    make
+    make install DESTDIR=${DESTDIR}
+    cp ${SRCDIR}/contrib/minizip/ints.h ${DESTDIR}${PREFIX}/include/minizip/

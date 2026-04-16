@@ -19,6 +19,7 @@ src:
       - "http://fresh-center.net/linux/misc/legacy/lz4-1.10.0.tar.gz"
 
 build:
-  system: make
-  make_args:
-    - "PREFIX=${PREFIX}"
+  system: shell
+  run: |
+    make PREFIX=${PREFIX}
+    make install PREFIX=${PREFIX} DESTDIR=${DESTDIR}

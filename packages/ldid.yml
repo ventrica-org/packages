@@ -20,4 +20,7 @@ src:
     url: "https://github.com/ProcursusTeam/ldid/archive/refs/tags/v2.1.5-procursus7.tar.gz"
 
 build:
-  system: make
+  system: shell
+  run: |
+    make
+    make install DESTDIR=${DESTDIR} PREFIX=${PREFIX}

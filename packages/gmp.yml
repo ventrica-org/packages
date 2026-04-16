@@ -20,9 +20,12 @@ src:
     url: "https://gmplib.org/download/gmp/gmp-6.3.0.tar.xz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--enable-cxx"
-    - "--with-pic"
-    - "--build=aarch64-apple-darwin16"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --enable-cxx \
+      --with-pic \
+      --build=aarch64-apple-darwin16
+    make
+    make install DESTDIR=${DESTDIR}

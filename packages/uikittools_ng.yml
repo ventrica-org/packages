@@ -17,7 +17,8 @@ src:
 
 build:
   env:
-    # assume we dont have ldid and don't apply
-    # additional unneccessary entitltmenets
-    - LDID: "true"
-  system: make
+    LDID: "true"
+  system: shell
+  run: |
+    make
+    make install DESTDIR=${DESTDIR} PREFIX=${PREFIX}

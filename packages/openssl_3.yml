@@ -17,11 +17,13 @@ src:
     url: "https://github.com/openssl/openssl/releases/download/openssl-3.5.5/openssl-3.5.5.tar.gz"
 
 build:
-  system: autotools
-  configure_script: Configure
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "darwin64-arm64-cc"
-    - "--openssldir=${PREFIX}/etc/ssl"
-    - "no-tests"
-    - "shared"
+  system: shell
+  run: |
+    ./Configure \
+      --prefix=${PREFIX} \
+      darwin64-arm64-cc \
+      --openssldir=${PREFIX}/etc/ssl \
+      no-tests \
+      shared
+    make
+    make install DESTDIR=${DESTDIR}

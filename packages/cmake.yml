@@ -22,5 +22,13 @@ src:
       - "http://fresh-center.net/linux/misc/legacy/cmake-4.3.0.tar.gz"
 
 build:
-  system: make
-  pre_configure: "./bootstrap --prefix=${PREFIX} --no-system-libs --datadir=${PREFIX}/share/cmake --docdir=${PREFIX}/share/doc/cmake --mandir=${PREFIX}/share/man"
+  system: shell
+  run: |
+    ./bootstrap \
+      --prefix=${PREFIX} \
+      --no-system-libs \
+      --datadir=${PREFIX}/share/cmake \
+      --docdir=${PREFIX}/share/doc/cmake \
+      --mandir=${PREFIX}/share/man
+    make
+    make install DESTDIR=${DESTDIR}

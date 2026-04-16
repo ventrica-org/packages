@@ -23,7 +23,10 @@ src:
       - "https://ftpmirror.gnu.org/gnu/mpfr/mpfr-4.2.2.tar.xz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--disable-silent-rules"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --disable-silent-rules
+    make
+    make install DESTDIR=${DESTDIR}

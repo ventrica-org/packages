@@ -12,5 +12,7 @@ src:
     url: "https://assets.checkra.in/downloads/preview/0.1337.3/checkra1n-macos"
 
 build:
-  system: none
-  post_install: "mkdir -p ${destdir}${PREFIX}/bin && install -m755 ${srcdir}/checkra1n-macos ${destdir}${PREFIX}/bin/checkra1n"
+  system: shell
+  run: |
+    mkdir -p ${DESTDIR}${PREFIX}/bin
+    install -m755 ${SRCDIR}/checkra1n-macos ${DESTDIR}${PREFIX}/bin/checkra1n

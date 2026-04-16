@@ -21,26 +21,30 @@ src:
     url: "https://curl.se/download/curl-8.18.0.tar.xz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--enable-versioned-symbols"
-    - "--disable-manual"
-    - "--disable-silent-rules"
-    - "--with-ssl"
-    - "--with-ca-fallback"
-    - "--with-default-ssl-backend=openssl"
-    - "--with-gssapi"
-    - "--with-nghttp2"
-    - "--with-libssh2"
-    - "--with-ca-bundle=/etc/ssl/cert.pem"
-    - "--without-ca-path"
-    - "--without-libpsl"
-    - "--disable-ldap"
-    - "--disable-ldaps"
-    - "--disable-ares"
-    - "--without-zstd"
-    - "--without-brotli"
-    - "--without-nghttp3"
-    - "--without-ngtcp2"
-  post_install: "mkdir -p \"${destdir}/share/man/man1\" && make -C scripts install"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --enable-versioned-symbols \
+      --disable-manual \
+      --disable-silent-rules \
+      --with-ssl \
+      --with-ca-fallback \
+      --with-default-ssl-backend=openssl \
+      --with-gssapi \
+      --with-nghttp2 \
+      --with-libssh2 \
+      --with-ca-bundle=/etc/ssl/cert.pem \
+      --without-ca-path \
+      --without-libpsl \
+      --disable-ldap \
+      --disable-ldaps \
+      --disable-ares \
+      --without-zstd \
+      --without-brotli \
+      --without-nghttp3 \
+      --without-ngtcp2
+    make
+    make install DESTDIR=${DESTDIR}
+    mkdir -p "${DESTDIR}/share/man/man1"
+    make -C scripts install DESTDIR=${DESTDIR}

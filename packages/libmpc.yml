@@ -19,8 +19,11 @@ src:
       - "https://ftpmirror.gnu.org/gnu/mpc/mpc-1.4.0.tar.xz"
 
 build:
-  system: autotools
-  configure_args:
-    - "--prefix=${PREFIX}"
-    - "--with-gmp=${DEP:gmp}"
-    - "--with-mpfr=${DEP:mpfr}"
+  system: shell
+  run: |
+    ./configure \
+      --prefix=${PREFIX} \
+      --with-gmp=${DEP:gmp} \
+      --with-mpfr=${DEP:mpfr}
+    make
+    make install DESTDIR=${DESTDIR}
