@@ -24,7 +24,7 @@ build:
   patches:
     - "fix-makefile-iconv.patch"
   run: |
-    sed -i '' 's/_(/N_(/g' src/system.c
+    sed -i 's/_(/N_(/g' src/system.c
     autoreconf -fi
     ./configure \
       --prefix=${PREFIX} \
