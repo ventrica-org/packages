@@ -6,6 +6,7 @@ meta:
   icon: "https://github.com/user-attachments/assets/a947a72e-bbaf-4034-9b42-5a1c618e0abf"
   homepage: "https://vesktop.dev"
   category: "applications.social"
+  no_cache: true
 
 src:
   fetch:

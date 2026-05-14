@@ -27,6 +27,6 @@ build:
       --disable-dependency-tracking \
       --disable-silent-rules \
       --with-gmp=system \
-      --with-gmp-prefix=${DEP:gmp}
+      --with-gmp-prefix=${PREFIX}
     make
     make install DESTDIR=${DESTDIR}

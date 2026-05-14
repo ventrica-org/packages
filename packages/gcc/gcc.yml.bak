@@ -40,11 +40,11 @@ build:
       --enable-languages=c,c++,fortran,objc,obj-c++ \
       --with-system-zlib \
       --program-suffix=-15.2.0 \
-      --with-gmp=${DEP:gmp} \
-      --with-mpfr=${DEP:mpfr} \
-      --with-mpc=${DEP:libmpc} \
-      --with-isl=${DEP:isl} \
-      --with-zstd=${DEP:zstd} \
+      --with-gmp=${PREFIX} \
+      --with-mpfr=${PREFIX} \
+      --with-mpc=${PREFIX} \
+      --with-isl=${PREFIX} \
+      --with-zstd=${PREFIX} \
       --with-sysroot=${MACOS_SDK}
     make BOOT_LDFLAGS=-Wl,-headerpad_max_install_names
     make install DESTDIR=${DESTDIR}

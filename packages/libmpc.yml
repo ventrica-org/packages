@@ -23,7 +23,7 @@ build:
   run: |
     ./configure \
       --prefix=${PREFIX} \
-      --with-gmp=${DEP:gmp} \
-      --with-mpfr=${DEP:mpfr}
+      --with-gmp=${PREFIX} \
+      --with-mpfr=${PREFIX}
     make
     make install DESTDIR=${DESTDIR}

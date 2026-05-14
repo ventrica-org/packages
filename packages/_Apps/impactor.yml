@@ -6,6 +6,7 @@ meta:
   icon: "https://github.com/claration/Impactor/blob/main/package/linux/icons/hicolor/64x64/apps/dev.khcrysalis.PlumeImpactor.png?raw=true"
   homepage: "https://github.com/claration/impactor"
   category: "applications.usb"
+  no_cache: true
 
 src:
   fetch:
