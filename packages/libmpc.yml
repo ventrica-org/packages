@@ -3,6 +3,7 @@ meta:
   version: "1.4.0"
   description: "A C library for the parsing of mathematical expressions"
   license: "LGPL-3.0-or-later"
+  category: "libraries"
 
 deps:
   build:

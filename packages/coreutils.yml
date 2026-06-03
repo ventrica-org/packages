@@ -3,7 +3,6 @@ meta:
   version: "9.10"
   description: "GNU Core Utilities"
   license: "GPL-3.0"
-  icon: "https://www.gnu.org/software/coreutils/coreutils.png"
   homepage: "https://www.gnu.org/software/coreutils/"
   category: "developer"
 

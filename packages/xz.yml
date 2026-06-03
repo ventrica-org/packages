@@ -4,7 +4,7 @@ meta:
   description: "General-purpose data compression with high compression ratio"
   license: "GPL-2.0-or-later"
   homepage: "https://tukaani.org/xz/"
-  category: "compression"
+  category: "archiving"
 
 deps:
   build:
