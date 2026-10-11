@@ -1,0 +1,20 @@
+name: "Impactor"
+version: "2.6.3"
+description: "Feature rich iOS/tvOS sideloading application written in Rust"
+license: "MIT"
+homepage: "https://github.com/claration/impactor"
+icon: "https://github.com/claration/Impactor/blob/main/package/linux/icons/hicolor/64x64/apps/dev.khcrysalis.PlumeImpactor.png?raw=true"
+category: "applications.usb"
+
+platforms:
+  - os: macos
+    archs: [arm64, x86_64]
+
+strategy:
+  uses: dmg
+  cache: false
+  appName: "Impactor.app"
+  sha256: "25c17a6d075f9067466ccb1762ad30c586f8203c1d46b02a6a68ca30d3a2dfff"
+  sources: 
+    - url: "https://github.com/claration/impactor/releases/download/v2.6.3/Impactor-macos-universal.dmg"
+      type: dmg
