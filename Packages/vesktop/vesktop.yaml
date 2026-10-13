@@ -16,5 +16,5 @@ strategy:
   appName: "Vesktop.app"
   sha256: "2fbb3e3ec04774b3e7e74bcdb74b88b5d2be65ac728d1036ac17f0583ddc3aeb"
   sources: 
-    - url: "https://github.com/Vencord/Vesktop/releases/download/v1.6.7/Vesktop-macos-universal.dmg"
+    - url: "https://github.com/Vencord/Vesktop/releases/download/v1.6.7/Vesktop-1.6.7-universal.dmg"
       type: dmg

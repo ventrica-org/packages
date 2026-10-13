@@ -2,3 +2,4 @@ name: Ventrica
 description: "Core Package Library"
 icon: "https://github.com/ventrica-org.png"
 homepage: "https://ventrica.org"
+cache: "https://cdn.claration.dev"

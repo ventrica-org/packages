@@ -1,0 +1,27 @@
+name: "tree"
+version: "2.3.2"
+description: "A recursive directory listing program"
+license: "GPL-2.0-or-later"
+homepage: "http://mama.indstate.edu/users/ice/tree/"
+category: "developer"
+
+platforms:
+  - os: macos
+    archs: [arm64, x86_64]
+  - os: linux
+    archs: [arm64, x86_64]
+
+strategy:
+  uses: shell
+  cache: true
+  sha256: "22cf32e84e3eb508d97a9e991c2c3cc006b9dcf4afed201d96311c5c57d08fcf"
+  sources:
+    - url: "https://github.com/Old-Man-Programmer/tree/archive/refs/tags/2.3.2.tar.gz"
+      type: tgz
+
+  steps:
+    build: |
+      make PREFIX=${PREFIX} MANDIR=${PREFIX}/share/man
+
+    install: |
+      make install DESTDIR=${DESTDIR}${PREFIX}/bin MANDIR=${DESTDIR}${PREFIX}/share/man
