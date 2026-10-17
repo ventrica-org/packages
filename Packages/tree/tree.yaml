@@ -20,8 +20,10 @@ strategy:
       type: tgz
 
   steps:
-    build: |
-      make PREFIX=${PREFIX} MANDIR=${PREFIX}/share/man
+    - name: Build
+      run: |
+        make PREFIX=${PREFIX} MANDIR=${PREFIX}/share/man
 
-    install: |
-      make install DESTDIR=${DESTDIR}${PREFIX}/bin MANDIR=${DESTDIR}${PREFIX}/share/man
+    - name: Install
+      run: |
+        make install DESTDIR=${DESTDIR}${PREFIX}/bin MANDIR=${DESTDIR}${PREFIX}/share/man

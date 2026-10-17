@@ -18,8 +18,10 @@ strategy:
       type: tgz
 
   steps:
-    build: |
-      make LDID="true"
+    - name: Build
+      run: |
+        make LDID="true"
 
-    install: |
-      make install LDID="true" DESTDIR=${DESTDIR} PREFIX=${PREFIX}
+    - name: Install
+      run: |
+        make install LDID="true" DESTDIR=${DESTDIR} PREFIX=${PREFIX}

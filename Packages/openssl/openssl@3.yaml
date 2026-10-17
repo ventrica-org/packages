@@ -20,14 +20,16 @@ strategy:
       type: tgz
 
   steps:
-    build: |
-      ./Configure \
-        --prefix=${PREFIX} \
-        darwin64-arm64-cc \
-        --openssldir=${PREFIX}/etc/ssl \
-        no-tests \
-        shared
-      make
+    - name: Build
+      run: |
+        ./Configure \
+          --prefix=${PREFIX} \
+          darwin64-arm64-cc \
+          --openssldir=${PREFIX}/etc/ssl \
+          no-tests \
+          shared
+        make
 
-    install: |
-      make install DESTDIR=${DESTDIR}
+    - name: Install
+      run: |
+        make install DESTDIR=${DESTDIR}
