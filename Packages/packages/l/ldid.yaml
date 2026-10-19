@@ -1,0 +1,32 @@
+name: "ldid"
+version: "2.1.5-procursus7"
+description: "Link Identity Editor. Put real or fake signatures in a Mach-O"
+license: "AGPL-3.0-or-later"
+homepage: "https://github.com/libimobiledevice/ldid"
+category: "developer"
+
+platforms:
+  - os: macos
+    archs: [x86_64, arm64]
+
+dependencies:
+  runtime:
+    - name: libplist
+    - name: openssl
+
+strategy:
+  uses: shell
+  cache: true
+  sha256: "04e461c6f02765e48fc9cc0b68d4dc353a9c46bc1c4d8bac0695509d1af1ff5e"
+  sources:
+    - url: "https://github.com/ProcursusTeam/ldid/archive/refs/tags/v2.1.5-procursus7.tar.gz"
+      type: "tgz"
+
+  steps:
+    - name: Build
+      run: |
+        make
+
+    - name: Install
+      run: |
+        make install DESTDIR=${DESTDIR} PREFIX=${PREFIX}

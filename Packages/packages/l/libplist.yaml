@@ -22,7 +22,8 @@ strategy:
     - name: Build
       run: |
         ./configure \
-          --prefix=${PREFIX}
+          --prefix=${PREFIX} \
+          --disable-dependency-tracking
         make
 
     - name: Install
