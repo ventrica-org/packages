@@ -1,0 +1,36 @@
+name: "gnumake"
+version: "4.4.1"
+description: "GNU make build automation tool"
+license: "GPL-3.0-or-later"
+homepage: "https://www.gnu.org/software/make/"
+category: "developer"
+
+platforms:
+  - os: macos
+    archs: [x86_64, arm64]
+
+strategy:
+  uses: shell
+  cache: true
+  sha256: "8814ba072182b605d156d7589c19a43b89fc58ea479b9355146160946f8cf6e9"
+  sources:
+    - url: "https://ftp.gnu.org/gnu/make/make-4.4.1.tar.lz"
+      type: "lzip"
+    - url: "https://ftpmirror.gnu.org/gnu/make/make-4.4.1.tar.lz"
+      type: "lzip"
+
+  steps:
+    - name: Build
+      run: |
+        ./configure \
+          --prefix=${PREFIX} \
+          --disable-dependency-tracking
+        make
+
+    - name: Install
+      run: |
+        make install DESTDIR=${DESTDIR}
+
+    - name: Post Install
+      run: |
+        ln -sf ${DESTDIR}${PREFIX}/bin/make ${DESTDIR}${PREFIX}/bin/gmake
