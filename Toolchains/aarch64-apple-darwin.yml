@@ -1,0 +1,42 @@
+name: aarch64-apple-darwin
+
+tools: 
+  - name: bashNonInteractive
+  - name: bzip2
+  - name: coreutils
+  - name: cpio
+  - name: curlMinimal
+  - name: darwin
+  - name: diffutils
+  - name: dumpnar
+  - name: findutils
+  - name: gawk
+  - name: gettext
+  - name: gmpxx
+  - name: gnugrep
+  - name: gnumake
+  - name: gnused
+  - name: gnutar
+  - name: gzip
+  - name: jq
+  - name: ld64
+  - name: libffi
+  - name: libiconv
+  - name: libxml2
+  - name: llvmPackages
+  - name: ncurses
+  - name: nukeReferences
+  - name: oniguruma
+  - name: openssl@3
+  - name: patch
+  - name: pbzx
+  - name: runCommand
+  - name: writeText
+  - name: xarMinimal
+  - name: xz
+  - name: zlib
+  - name: cctools
+
+prebuilds:
+  - url: "http://tarballs.nixos.org/stdenv/aarch64-apple-darwin/d8657587c0c1ce2191b4b489299c386b5b7148c6/bootstrap-tools.tar.xz"
+    sha256: "8be2b04c863a3f774a7cd984e360560bdfaa5289a80f16b33b9d2ebebccd9691"
