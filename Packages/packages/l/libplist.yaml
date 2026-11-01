@@ -11,7 +11,7 @@ platforms:
 
 strategy:
   uses: shell
-  type: stdenv
+  toolchain: stdenv
   cache: true
   sha256: "7ac42301e896b1ebe3c654634780c82baa7cb70df8554e683ff89f7c2643eb8b"
   sources:
