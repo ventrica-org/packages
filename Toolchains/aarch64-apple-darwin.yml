@@ -1,5 +1,6 @@
-name: aarch64-apple-darwin
 type: stdenv
+os: macos
+arch: arm64
 
 tools: 
   - name: bashNonInteractive
@@ -38,6 +39,6 @@ tools:
   - name: zlib
   - name: cctools
 
-prebuilds:
-  - url: "http://tarballs.nixos.org/stdenv/aarch64-apple-darwin/d8657587c0c1ce2191b4b489299c386b5b7148c6/bootstrap-tools.tar.xz"
-    sha256: "8be2b04c863a3f774a7cd984e360560bdfaa5289a80f16b33b9d2ebebccd9691"
+prebuild:
+  url: "http://tarballs.nixos.org/stdenv/aarch64-apple-darwin/d8657587c0c1ce2191b4b489299c386b5b7148c6/bootstrap-tools.tar.xz"
+  sha256: "8be2b04c863a3f774a7cd984e360560bdfaa5289a80f16b33b9d2ebebccd9691"
